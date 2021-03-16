@@ -1,5 +1,5 @@
 # SDA-TODOLIST-001
-# SDA-TODOLIST-SM
+
 
 #ToDoList App
 A simple JAVA program to create and manage a personal Todo List. 
