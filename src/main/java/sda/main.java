@@ -1,14 +1,9 @@
-package com.SaraSDA.ToDoListApp_V2;
+package sda;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
 
 /**
  * The type Main.

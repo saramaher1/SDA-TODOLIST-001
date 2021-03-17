@@ -1,4 +1,4 @@
-package com.SaraSDA.ToDoListApp_V2;
+package sda;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,14 +6,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 import java.util.Scanner;
 
 /**
- * The type Display.
+ * The type sda.main.Display.
  */
 public class Display {
-
 
 
     TaskStore taskStore = new TaskStore();
@@ -51,7 +49,8 @@ public class Display {
             case 4:
                 // here we should save our list in file
                 break;
-            default:System.out.println(" your choise is an unvalid option !! ");
+            default:
+                System.out.println(" your choise is an unvalid option !! ");
                 System.out.println(" ");
                 backToStartMenu();
                 break;
@@ -64,7 +63,7 @@ public class Display {
      */
     String showtype = "Date";
 
-    public  ArrayList<Task> getTasks() throws FileNotFoundException {
+    public ArrayList<Task> getTasks() throws FileNotFoundException {
         ArrayList<Task> loadedTasks = new ArrayList<>();
         File myFile = new File("./resources/data.txt");
         Scanner readFile = new Scanner(myFile);
@@ -100,7 +99,7 @@ public class Display {
 
         Scanner input = new Scanner(System.in);
         EditmenuSelect = input.nextInt();
-           // the user should select which way he want to show his tasks:
+        // the user should select which way he want to show his tasks:
         // 1: showing task by DueDate.
         // 2: showing tasks by Project
         switch (EditmenuSelect) {
@@ -138,7 +137,7 @@ public class Display {
         String TaskTitle = in.nextLine();
         System.out.println("<<  Enter DueDate for Your Task:  >>");
         System.out.println("<<  Please Enter Date with ( dd-mm-yyyy) format  >>");
-       String DueDate = in.nextLine();
+        String DueDate = in.nextLine();
 
 
         // here is adding the project
@@ -179,16 +178,16 @@ public class Display {
         System.out.println("  Your Task Have been Added Successfully ...");
         System.out.println();
         System.out.println("Your TaskTitle is : " + TaskTitle);
-        System.out.println("Your DueDate is : " +DueDate );
+        System.out.println("Your DueDate is : " + DueDate);
         System.out.println("Your projectname is : " + projectname);
 
         // Here We Can add the Typed Title and Date to the TaskList in TaskStore
 
 
         //convert the String Date to DateType by using SimplyDateFormat
-        SimpleDateFormat format=new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
-        Date date1= null;
+        Date date1 = null;
         try {
             date1 = new SimpleDateFormat("dd-MM-yyyy").parse(DueDate);
         } catch (ParseException e) {
@@ -198,7 +197,7 @@ public class Display {
 
         }
 
-        taskStore.addTask(TaskTitle,   date1, projectname);
+        taskStore.addTask(TaskTitle, date1, projectname);
 // after Finishing the add method We should go back To the Startmenu!
         backToStartMenu();
 
@@ -252,43 +251,43 @@ public class Display {
                 updatingTask();
                 break;
             case 2:
-               // removing task
+                // removing task
                 removeTaskMenu();
 
                 break;
             case 3:
-               // for makeyour task as done!
+                // for makeyour task as done!
                 MarkasDoneMenu();
                 break;
-
 
 
         }
         backToStartMenu();
 
     }
-  public void updatingTask(){
+
+    public void updatingTask() {
         // in updaing Task the user should select the task
-      // the method remove the task from the array list using the another method
-      // removedselectedTas(String selectedTask)
-      // and the user can add new task instead of the old task!
-      System.out.println("Select task to update!");
+        // the method remove the task from the array list using the another method
+        // removedselectedTas(String selectedTask)
+        // and the user can add new task instead of the old task!
+        System.out.println("Select task to update!");
 
-      showingTaskToEdit();
-      Scanner inupdate = new Scanner(System.in);
-      int updatedTaskNumber = inupdate.nextInt();
-      taskStore.removeSelectedTask(updatedTaskNumber);
+        showingTaskToEdit();
+        Scanner inupdate = new Scanner(System.in);
+        int updatedTaskNumber = inupdate.nextInt();
+        taskStore.removeSelectedTask(updatedTaskNumber);
 
-      System.out.println("here you can edit your task!");
-      addingTaskMenu();
+        System.out.println("here you can edit your task!");
+        addingTaskMenu();
 
-  }
+    }
+
     /***
      *
      */
 // in this method you can see our Tasks in the program:
-   public void showingTaskToEdit()
-    {
+    public void showingTaskToEdit() {
         for (int i = 0; i < taskStore.taskList.size(); i++)
             System.out.println("(" + (i + 1) + ")" + taskStore.taskList.get(i).getTaskTitle() + "\n");
 
@@ -309,9 +308,9 @@ public class Display {
         Scanner inremove = new Scanner(System.in);
         int removedTask = inremove.nextInt();
 
-       taskStore.removeSelectedTask(removedTask);
+        taskStore.removeSelectedTask(removedTask);
 
-       // here is an addintional PrintLn
+        // here is an addintional PrintLn
         System.out.println("Loading...20%");
         System.out.println("Loading...80%");
         System.out.println("Loading...100%");
@@ -333,23 +332,21 @@ public class Display {
         System.out.println("  Your task have been mareked as done Successfully ...");
     }
 
-    public void SaveAndQuitMenu (){
+    public void SaveAndQuitMenu() {
         System.out.println("bye");
-
 
 
     }
 
-    public void showingDoneTasks(){
+    public void showingDoneTasks() {
 
-        for (int i = 0; i < taskStore.taskList.size(); i++){
-            if(taskStore.taskList.get(i).getStatus()==true){
+        for (int i = 0; i < taskStore.taskList.size(); i++) {
+            if (taskStore.taskList.get(i).getStatus() == true) {
 
-                System.out.println("(" + (i + 1) + ")" + taskStore.taskList.get(i).getTaskTitle() + "Marked As Done"+"\n");
+                System.out.println("(" + (i + 1) + ")" + taskStore.taskList.get(i).getTaskTitle() + "Marked As Done" + "\n");
 
-            }
-            else {
-                System.out.println("(" + (i + 1) + ")" + taskStore.taskList.get(i).getTaskTitle() + "Need To Do it !!"+"\n");
+            } else {
+                System.out.println("(" + (i + 1) + ")" + taskStore.taskList.get(i).getTaskTitle() + "Need To Do it !!" + "\n");
             }
 
         }
