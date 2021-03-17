@@ -10,24 +10,41 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * The type Main.
+ */
 public class main {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
+        try {
+            Display d = new Display();
+            ArrayList<Task> taskList = d.getTasks();
 
-        //Making list for adding tasks in it.
-
-        ArrayList<Task> taskList=new ArrayList<Task>();
-
-
-        System.out.println("       Welcome to your ToDoList :      ");
-        System.out.println();
-
-        // here we shoulde write how many task we have and how many task we'v done;
-        Display d= new Display();
-        d.StartMenu();
-
+            //Making list for adding tasks in it.
+            System.out.println("       Welcome to your ToDoList :      ");
+            System.out.println();
+            // here we shoulde write how many task we have and how many task we'v done;
+            d.StartMenu();
+        }
+        catch(Exception ex){
+            System.out.println("Oops! Something went wrong, please close the console and runt it again!");
+        }
     }
 
+
+
+
+    /**
+     * Read from file boolean.
+     *
+     * @param filename the filename
+     * @return the boolean
+     */
     public boolean readFromFile(String filename) {
         ArrayList<Task> taskList;
         boolean status = false;
@@ -52,6 +69,15 @@ public class main {
             return false;
         }
     }
+
+    // saving my Tasks into file:
+
+    /**
+     * Save to file boolean.
+     *
+     * @param filename the filename
+     * @return the boolean
+     */
     public boolean saveToFile(String filename) {
         ArrayList<Task> taskList = new ArrayList<>();
         try {
