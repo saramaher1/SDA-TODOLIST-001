@@ -53,7 +53,7 @@ public class TaskStore {
      *
      * @param MarkedTask the marked task
      */
-    public void MarkAsDone(int MarkedTask) {
+    public void MarkAsDone(int MarkedTask) throws NullPointerException{
         taskList.get(MarkedTask).setStatus(true);
         System.out.println("  Your task have been mareked as done Successfully ...");
 
