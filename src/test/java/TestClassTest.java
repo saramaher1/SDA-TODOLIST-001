@@ -1,16 +1,12 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import sda.Display;
 import sda.Task;
 import sda.TaskStore;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TestClassTest {
 
@@ -23,7 +19,7 @@ class TestClassTest {
     @Test
     @DisplayName("when add task the array list size will increase and should pass")
     public void addTaskTest() throws ParseException {
-        TaskStore ts = new TaskStore();
+        TaskStore ts = new TaskStore(new ArrayList<Task>());
         String dueDate = "17-03-2021";
         Date date = new SimpleDateFormat("dd-MM-yyyy").parse(dueDate);
         ts.addTask("Sara", date, "Java");
@@ -34,7 +30,7 @@ class TestClassTest {
     @Test
     @DisplayName("when rempve task and array list has task should pass")
     public void removeTaskTestAfterAdding3TasksInArrayList() throws ParseException {
-        TaskStore ts = new TaskStore();
+        TaskStore ts = new TaskStore(new ArrayList<Task>());
         String dueDate = "17-03-2021";
         Date date = new SimpleDateFormat("dd-MM-yyyy").parse(dueDate);
         ts.addTask(taskTitle, date, projectName);
@@ -50,24 +46,19 @@ class TestClassTest {
     @DisplayName("when rempve task and array list has no task in it ,it shouldn't pass")
 
     public void removeTaskTestWhentheArraylistIsEmpty() {
-
-
-
-
         // Assertions.assertEquals(0, ts.getTaskListSize());
-        TaskStore ts = new TaskStore();
+        TaskStore ts = new TaskStore(new ArrayList<Task>());
 
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
             ts.removeSelectedTask(0);
         });
-
     }
 
     @Test
     @DisplayName("When rempve task and array list has no task in it ,it shouldn't pass")
     public void markAsDoneTestShouldReturnTureToTheStatus()throws ParseException{
         //A: Arrange
-        TaskStore ts = new TaskStore();
+        TaskStore ts = new TaskStore(new ArrayList<Task>());
         String dueDate = "17-03-2021";
         Date date = new SimpleDateFormat("dd-MM-yyyy").parse(dueDate);
         ts.addTask(taskTitle, date, projectName);
@@ -82,12 +73,9 @@ class TestClassTest {
     @Test
     @DisplayName("When Mark As done for empty array list   ,it shouldn't pass")
     public void markAsDoneTestForEmptyArraylist()throws ParseException{
-        TaskStore ts = new TaskStore();
-
+        TaskStore ts = new TaskStore(new ArrayList<Task>());
 
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
             ts.MarkAsDone(0);
         });
-
-
 }}

@@ -7,10 +7,10 @@ import java.util.Date;
  */
 public class Task {
 
-    private String TaskTitle;
-    private Date DueDate;
-    private Boolean Status;
-    private String ProjectName;
+    private String taskTitle;
+    private Date dueDate;
+    private Boolean status;
+    private String projectName;
 
 
     /**
@@ -19,7 +19,7 @@ public class Task {
      * @return the status
      */
     public Boolean getStatus() {
-        return Status;
+        return status;
     }
 
     /**
@@ -28,7 +28,7 @@ public class Task {
      * @return the due date
      */
     public Date getDueDate() {
-        return DueDate;
+        return dueDate;
     }
 
     /**
@@ -37,7 +37,7 @@ public class Task {
      * @return the task title
      */
     public String getTaskTitle() {
-        return TaskTitle;
+        return taskTitle;
     }
 
     /**
@@ -46,7 +46,7 @@ public class Task {
      * @return the project name
      */
     public String getProjectName() {
-        return ProjectName;
+        return projectName;
     }
 
     /**
@@ -55,7 +55,7 @@ public class Task {
      * @param taskTitle the task title
      */
     public void setTaskTitle(String taskTitle) {
-        TaskTitle = taskTitle;
+        this.taskTitle = taskTitle;
     }
 
 
@@ -65,7 +65,7 @@ public class Task {
      * @param dueDate the due date
      */
     public void setDueDate(Date dueDate) {
-        DueDate = dueDate;
+        this.dueDate = dueDate;
     }
 
 
@@ -75,7 +75,7 @@ public class Task {
      * @param status the status
      */
     public void setStatus(Boolean status) {
-        Status = status;
+        this.status = status;
     }
 
     /**
@@ -84,7 +84,7 @@ public class Task {
      * @param projectName the project name
      */
     public void setProjectName(String projectName) {
-        ProjectName = projectName;
+        this.projectName = projectName;
     }
 
 
@@ -96,18 +96,19 @@ public class Task {
      * @param projectName the project name
      */
     public Task(String taskTitle, Date dueDate, String projectName) {
-        TaskTitle = taskTitle;
-        DueDate = dueDate;
-        ProjectName = projectName;
+        this.taskTitle = taskTitle;
+        this.dueDate = dueDate;
+        this.projectName = projectName;
+        status =false;
     }
 
 
 
     public Task(String taskTitle, Date dueDate, Boolean status, String projectName) {
-        TaskTitle = taskTitle;
-        DueDate = dueDate;
-        ProjectName = projectName;
-        this.Status=status;
+        this.taskTitle = taskTitle;
+        this.dueDate = dueDate;
+        this.projectName = projectName;
+        this.status =status;
     }
 
     /**
@@ -116,7 +117,7 @@ public class Task {
      * @param status the status
      */
     public Task(Boolean status) {
-        Status = status;
+        this.status = status;
     }
 
     /**

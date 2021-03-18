@@ -1,14 +1,8 @@
 package sda;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
-
 
 /**
  * The type Task store.
@@ -20,6 +14,10 @@ public class TaskStore {
      * The Task list.
      */
     protected ArrayList<Task> taskList = new ArrayList<>();
+
+    public TaskStore(ArrayList<Task> taskList){
+        this.taskList=taskList;
+    }
 
     /**
      * Add task.
@@ -33,8 +31,7 @@ public class TaskStore {
         taskList.add(T);
     }
 
-    public int getTaskListSize()
-    {
+    public int getTaskListSize() {
         return taskList.size();
     }
 
@@ -53,14 +50,11 @@ public class TaskStore {
      *
      * @param MarkedTask the marked task
      */
-    public void MarkAsDone(int MarkedTask) throws NullPointerException{
+    public void MarkAsDone(int MarkedTask) throws NullPointerException {
         taskList.get(MarkedTask).setStatus(true);
         System.out.println("  Your task have been mareked as done Successfully ...");
 
     }
-
-
-
 
     /**
      * Show task list.
@@ -82,13 +76,13 @@ public class TaskStore {
                 System.out.println(" There is No Tasks For Date:( ");
                 System.out.println();
             }
-        // showing the tasks by project :
+            // showing the tasks by project :
             // the user should select which project want to show the tasks.
 
 
         } else if (showItem.equals("project")) {
 
- // selecting the project :
+            // selecting the project :
             // 1- Entertainment
             // 2- learning
             // 3-Work
@@ -107,7 +101,7 @@ public class TaskStore {
                         projectname = "Entertainment";
                         for (int i = 0; i < taskList.size(); i++) {
                             if (projectname == "Entertainment") {
-                              getTaskBySelectedProject(projectname);
+                                getTaskBySelectedProject(projectname);
                             }
                         }
                         break;
@@ -125,54 +119,29 @@ public class TaskStore {
                         for (int i = 0; i < taskList.size(); i++) {
                             if (projectname == "Work") {
 
-                               getTaskBySelectedProject(projectname);
-
+                                getTaskBySelectedProject(projectname);
                             }
                             break;
                         }
-
-
                 }
-
             }
-
-        }}
-
-        //this is to show the tasks after choosing the project from the menue !
- public void getTaskBySelectedProject(String projectName){
-     System.out.println("The Tasks for the  "+projectName);
-     for (int i = 0; i < taskList.size(); i++) {
-        if (projectName != null ) {
-             System.out.println("(" + (i + 1) + ")" + taskList.get(i).getTaskTitle() + "\n");
-         } else {
-             System.out.println("There is no tasks "+projectName);
-
-         }
-
-     }
-
         }
-
-
-
-// saving the task details in data file
-
-    private static void saveTasks(ArrayList<Task> tasks) throws IOException {
-        new FileWriter("./resources/data.txt", false).close();
-        for (Task temp : tasks) {
-            String taskToSave = temp.getTaskTitle() + "," +
-                    temp.getDueDate() + "," +
-                    temp.getStatus().toString() + "," +
-                    temp.getProjectName();
-            Files.write(Paths.get("./resources/data.txt"), taskToSave.getBytes(), StandardOpenOption.APPEND);
-        }
-
-        System.exit(0);
     }
 
+    //this is to show the tasks after choosing the project from the menue !
+    public void getTaskBySelectedProject(String projectName) {
+        System.out.println("The Tasks for the  " + projectName);
+        for (int i = 0; i < taskList.size(); i++) {
+            if (projectName != null) {
+                System.out.println("(" + (i + 1) + ")" + taskList.get(i).getTaskTitle() + "\n");
+            } else {
+                System.out.println("There is no tasks " + projectName);
+            }
+        }
+    }
 
-    public Task getTaskbyId(int ID){
-
+    public Task getTaskbyId(int ID) {
         return taskList.get(ID);
     }
+
 }

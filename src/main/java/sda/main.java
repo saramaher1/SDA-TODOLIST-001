@@ -17,9 +17,9 @@ public class main {
      */
     public static void main(String[] args) {
         try {
-            Display d = new Display();
-            ArrayList<Task> taskList = d.getTasks();
-
+            ArrayList<Task> taskList = FileHandler.getTasks();
+            TaskStore taskStore=new TaskStore(taskList);
+            Display d = new Display(taskStore);
             //Making list for adding tasks in it.
             System.out.println("       Welcome to your ToDoList :      ");
             System.out.println();

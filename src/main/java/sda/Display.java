@@ -2,6 +2,11 @@ package sda;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,7 +19,11 @@ import java.util.Scanner;
 public class Display {
 
 
-    TaskStore taskStore = new TaskStore();
+    TaskStore taskStore ;
+
+public Display(TaskStore taskStore){
+    this.taskStore=taskStore;
+}
 
     /**
      * Start menu.
@@ -47,7 +56,12 @@ public class Display {
                 EditingTaskMenu();
                 break;
             case 4:
-                // here we should save our list in file
+                if(FileHandler.trySaveTasks(taskStore.taskList))
+                {
+                    System.exit(0);
+                }else{
+                    System.exit(1);
+                };
                 break;
             default:
                 System.out.println(" your choise is an unvalid option !! ");
@@ -63,27 +77,8 @@ public class Display {
      */
     String showtype = "Date";
 
-    public ArrayList<Task> getTasks() throws FileNotFoundException {
-        ArrayList<Task> loadedTasks = new ArrayList<>();
-        File myFile = new File("./resources/data.txt");
-        Scanner readFile = new Scanner(myFile);
-        while (readFile.hasNext()) {
-            String line[] = readFile.nextLine().split(",");
-            String title = line[0];
-            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-            Date dueDate = null;
-            try {
-                dueDate = formatter.parse(line[1]);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            //LocalDate localDate = LocalDate.parse(line[0]);
-            boolean status = Boolean.parseBoolean(line[2]);
-            String project = line[3];
-            loadedTasks.add(new Task(title, dueDate, status, project));
-        }
-        return loadedTasks;
-    }
+
+
 
     /**
      * Show task menu.
