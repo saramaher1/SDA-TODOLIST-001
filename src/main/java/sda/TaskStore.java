@@ -167,6 +167,10 @@ public class TaskStore {
             }
         }
     }
+
+    public sda.Task getTaskbyId(int ID) {
+        return taskList.get(ID);
+    }
 }
 
 
