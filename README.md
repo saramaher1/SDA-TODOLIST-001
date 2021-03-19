@@ -43,7 +43,7 @@ java -jar build/libs/sda.jar
 
 
 ## Class Diagram: 
-<img width="864" alt="Screenshot 2021-03-05 at 11 09 29" src="https://user-images.githubusercontent.com/79480685/110101084-74580980-7da3-11eb-9d46-a094c8cf73f0.png">
+<img width="787" alt="Screenshot 2021-03-19 at 14 03 33" src="https://user-images.githubusercontent.com/79480685/111784983-536fd800-88bc-11eb-81bc-0d53b2b8c884.png">
 
 
 ## getting Started :
