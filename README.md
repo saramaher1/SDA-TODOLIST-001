@@ -10,10 +10,21 @@ by Simple options you can select 1 Choise that help you to use the ToDoList.
 This application can be run directly via gradle or via generating jar file 
 ### Run with Gradle:
 In the root folder Start the application with gradle's command line
-...bash
+```java
 gradle run
-...
+```
 
+### Run with jar file:
+Generate the jar file with Gradle's build command.
+```java
+gradle build
+```
+the jar file will be generated in `build/libs` which can be run by a java enviroments.
+```java
+java -jar build/libs/sda.jar
+```
+
+## Usage 
 ## features
 * Models a task with: 
     * task title
