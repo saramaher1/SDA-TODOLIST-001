@@ -1,5 +1,7 @@
 package sda;
 
+import java.time.DateTimeException;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -27,7 +29,7 @@ public class Task {
      *
      * @return the due date
      */
-    public Date getDueDate() {
+    public  Date getDueDate() {
         return dueDate;
     }
 
@@ -65,9 +67,8 @@ public class Task {
      * @param dueDate the due date
      */
     public void setDueDate(Date dueDate) {
-        this.dueDate = dueDate;
+        this.dueDate=dueDate;
     }
-
 
     /**
      * Sets status.
@@ -95,7 +96,7 @@ public class Task {
      * @param dueDate     the due date
      * @param projectName the project name
      */
-    public Task(String taskTitle, Date dueDate, String projectName) {
+    public Task(String taskTitle,  Date dueDate, String projectName) {
         this.taskTitle = taskTitle;
         this.dueDate = dueDate;
         this.projectName = projectName;
@@ -104,7 +105,7 @@ public class Task {
 
 
 
-    public Task(String taskTitle, Date dueDate, Boolean status, String projectName) {
+    public Task(String taskTitle,  Date dueDate, Boolean status, String projectName) {
         this.taskTitle = taskTitle;
         this.dueDate = dueDate;
         this.projectName = projectName;

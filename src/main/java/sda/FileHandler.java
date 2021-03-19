@@ -6,12 +6,22 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * The type File handler.
+ */
 public  class FileHandler {
 
+    /**
+     * Gets tasks.
+     *
+     * @return the tasks
+     * @throws FileNotFoundException the file not found exception
+     */
     public static ArrayList<Task> getTasks() throws FileNotFoundException {
         ArrayList<Task> loadedTasks = new ArrayList<>();
         File myFile = new File("./resources/data.txt");
@@ -26,7 +36,6 @@ public  class FileHandler {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            //LocalDate localDate = LocalDate.parse(line[0]);
             boolean status = Boolean.parseBoolean(line[2]);
             String project = line[3];
             loadedTasks.add(new Task(title, dueDate, status, project));
@@ -36,6 +45,12 @@ public  class FileHandler {
 
     // saving the task details in data file
 
+    /**
+     * Try save tasks boolean.
+     *
+     * @param tasks the tasks
+     * @return the boolean
+     */
     public static boolean trySaveTasks(ArrayList<Task> tasks) {
       try {
           new PrintWriter("./resources/data.txt").close();

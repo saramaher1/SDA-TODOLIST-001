@@ -1,5 +1,6 @@
 package sda;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -42,7 +43,7 @@ public class TaskStore {
      */
 // This method removed the selected task from the Menu:
     public void removeSelectedTask(int removedTask) {
-        taskList.remove(removedTask);
+        taskList.remove(removedTask-1);
     }
 
     /**
@@ -62,31 +63,33 @@ public class TaskStore {
      * @param showItem the show item
      */
     // this
+
     public void getingTaskList(String showItem) {
 
         if (showItem.equals("Date")) {
 
-            //showing the tasks by dueDate:
+      //here to show the Tasklist by date
+            if(!taskList.isEmpty())
 
-            if (!taskList.isEmpty()) {
+            {
 
                 for (int i = 0; i < taskList.size(); i++)
-                    System.out.println("(" + (i + 1) + ")" + taskList.get(i).getDueDate() + "\n");
-            } else {
+                    System.out.println("(" + (i + 1) + ")" + taskList.get(i).getTaskTitle()+ "    "+ taskList.get(i).getDueDate() +"\n");
+            } else
+
+            {
                 System.out.println(" There is No Tasks For Date:( ");
                 System.out.println();
             }
-            // showing the tasks by project :
-            // the user should select which project want to show the tasks.
 
 
-        } else if (showItem.equals("project")) {
+        }else if(showItem.equals("project")){
 
-            // selecting the project :
-            // 1- Entertainment
-            // 2- learning
-            // 3-Work
-            if (!taskList.isEmpty()) {
+
+
+            if(!taskList.isEmpty())
+
+            {
                 String projectname;
                 Scanner inProject = new Scanner(System.in);
                 System.out.println("<<  Select project for Your Task you want to show :  >>");
@@ -96,43 +99,66 @@ public class TaskStore {
                 System.out.println("(3)..Work  ");
                 int projectCheck = inProject.nextInt();
                 switch (projectCheck) {
-                    // showing the tasks for each project
                     case 1:
-                        projectname = "Entertainment";
-                        for (int i = 0; i < taskList.size(); i++) {
-                            if (projectname == "Entertainment") {
-                                getTaskBySelectedProject(projectname);
+                        projectname="Entertainment";
+                        System.out.println("The Tasks for Entertainment Project : ");
+                        for (int i = 0; i < taskList.size(); i++){
+                            if(projectname=="Entertainment"){
+
+
+                                System.out.println("(" + (i + 1) + ")" + taskList.get(i).getTaskTitle() + "\n");
+                            }
+                            else {System.out.println("There is no tasks for Entertanment project");
+
                             }
                         }
                         break;
                     case 2:
-                        projectname = "Learning";
+                        projectname="Learning";
+                        System.out.println("The Tasks for Learning Project : ");
                         for (int i = 0; i < taskList.size(); i++) {
                             if (projectname == "Learning") {
 
-                                getTaskBySelectedProject(projectname);
+
+                                System.out.println("(" + (i + 1) + ")" + taskList.get(i).getTaskTitle() + "\n");
+                            } else {
+                                System.out.println("There is no tasks for Learning project");
+
                             }
                         }
                         break;
                     case 3:
-                        projectname = "Work";
-                        for (int i = 0; i < taskList.size(); i++) {
-                            if (projectname == "Work") {
+                        projectname="Work";
+                        System.out.println("The Tasks for Work Project : ");
 
-                                getTaskBySelectedProject(projectname);
+                        for (int i = 0; i < taskList.size(); i++){
+                            if(projectname=="Work"){
+
+                                System.out.println("The Tasks for Work Project : ");
+                                System.out.println("(" + (i + 1) + ")" + taskList.get(i).getTaskTitle() + "\n");
+                            }
+                            else {System.out.println("There is no tasks for Work project");
+
                             }
                             break;
                         }
+
+
                 }
+
+
             }
+
         }
     }
 
-    //this is to show the tasks after choosing the project from the menue !
+
+
+    //this is to show the tasks after choosing the project from the menu !
     public void getTaskBySelectedProject(String projectName) {
-        System.out.println("The Tasks for the  " + projectName);
+        //System.out.println("The Tasks for the  " + projectName);
         for (int i = 0; i < taskList.size(); i++) {
-            if (projectName != null) {
+            if (taskList.get(i).getProjectName()==projectName ) {
                 System.out.println("(" + (i + 1) + ")" + taskList.get(i).getTaskTitle() + "\n");
             } else {
                 System.out.println("There is no tasks " + projectName);

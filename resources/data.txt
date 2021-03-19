@@ -1,4 +1,2 @@
-Study JAVA,null,false, Education
-Get app done,null,false, Work
-Have a walk,null,false, Fun
-something,Tue Nov 22 00:00:00 CET 2022,false,Work
+saara,Tue Oct 20 00:00:00 CEST 2020,false,Entertainment
+maher,Tue Oct 20 00:00:00 CEST 2020,false,Entertainment

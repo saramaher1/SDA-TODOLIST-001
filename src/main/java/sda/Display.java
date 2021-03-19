@@ -9,6 +9,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -18,10 +20,14 @@ import java.util.Scanner;
  */
 public class Display {
 
-
     TaskStore taskStore ;
 
-public Display(TaskStore taskStore){
+    /**
+     * Instantiates a new Display.
+     *
+     * @param taskStore the task store
+     */
+    public Display(TaskStore taskStore){
     this.taskStore=taskStore;
 }
 
@@ -31,8 +37,6 @@ public Display(TaskStore taskStore){
 // here is the Start menu that Start when the programm is run at the :
     // the user can select what he want to do in his ToDolist!
     public void StartMenu() {
-
-
         System.out.println("Pick an option:");
         System.out.println("(1) Show Task List (by date or project)");
         System.out.println("(2) Add New Task");
@@ -77,9 +81,6 @@ public Display(TaskStore taskStore){
      */
     String showtype = "Date";
 
-
-
-
     /**
      * Show task menu.
      */
@@ -91,7 +92,6 @@ public Display(TaskStore taskStore){
         System.out.println("(1) Show Tasks By Date ");
         System.out.println("(2) Show Tasks By Project ");
         int EditmenuSelect;
-
         Scanner input = new Scanner(System.in);
         EditmenuSelect = input.nextInt();
         // the user should select which way he want to show his tasks:
@@ -107,13 +107,10 @@ public Display(TaskStore taskStore){
                 System.out.println("Here is Your Task Sorting by project");
                 showtype = "project";
                 taskStore.getingTaskList(showtype);
-
                 break;
-
         }
-// after finishinh its time to goback to start Menu:)
+       // after finishinh its time to goback to start Menu:)
         backToStartMenu();
-
     }
 
     /**
@@ -124,23 +121,16 @@ public Display(TaskStore taskStore){
     // Also the user should select the Projectname for his Task!
     public void addingTaskMenu() {
         System.out.println("Here You can Enter Your Task!");
-
         System.out.println(" << Add title of your Task and Add Date >> ");
         System.out.println("Enter Task Title :");
         Scanner in = new Scanner(System.in);
-
         String TaskTitle = in.nextLine();
         System.out.println("<<  Enter DueDate for Your Task:  >>");
         System.out.println("<<  Please Enter Date with ( dd-mm-yyyy) format  >>");
         String DueDate = in.nextLine();
-
-
         // here is adding the project
         // the user should select the projectname By typing the number for the project so its added as
         // a project name for his task!
-
-        //
-
         Scanner inProject = new Scanner(System.in);
         String projectname = "project";
         System.out.println("<<  Select project for Your Task:  >>");
@@ -161,11 +151,8 @@ public Display(TaskStore taskStore){
                 projectname = "Work";
                 break;
         }
-
         // Here is additional Println()
         // you can skip it.
-
-
         System.out.println("Loading...20%");
         System.out.println("Loading...80%");
         System.out.println("Loading...100%");
@@ -177,8 +164,6 @@ public Display(TaskStore taskStore){
         System.out.println("Your projectname is : " + projectname);
 
         // Here We Can add the Typed Title and Date to the TaskList in TaskStore
-
-
         //convert the String Date to DateType by using SimplyDateFormat
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -193,9 +178,8 @@ public Display(TaskStore taskStore){
         }
 
         taskStore.addTask(TaskTitle, date1, projectname);
-// after Finishing the add method We should go back To the Startmenu!
+       // after Finishing the add method We should go back To the Startmenu!
         backToStartMenu();
-
     }
 
     /**
@@ -207,7 +191,6 @@ public Display(TaskStore taskStore){
         System.out.println("  <<  Back to Start Menu  >>");
         System.out.println("Press * to go to The Start Menu");
         String menuback;
-
         menuback = in.nextLine();
         switch (menuback) {
             case "*":
@@ -219,14 +202,12 @@ public Display(TaskStore taskStore){
         }
     }
 
-
     /**
      * Editing task menu.
      */
 // this menu is showing when the user select the (3) option in The Start menu So The user Can select what
     // to Edit the tasks select 1 to  update  ,2 to  Edit ,3 to Remove
     public void EditingTaskMenu() {
-
         System.out.println("Here You Can Edit your Task:");
         System.out.println();
         System.out.println("What Do you want To Do ? ");
@@ -234,12 +215,9 @@ public Display(TaskStore taskStore){
         System.out.println("(1) UpDate Task .");
         System.out.println("(2) Remove Task .");
         System.out.println("(3) Mark As Done.");
-
-
         int EditMenuSelect;
         Scanner input = new Scanner(System.in);
         EditMenuSelect = input.nextInt();
-
         switch (EditMenuSelect) {
             case 1:
                 // updating your task:
@@ -248,34 +226,30 @@ public Display(TaskStore taskStore){
             case 2:
                 // removing task
                 removeTaskMenu();
-
                 break;
             case 3:
                 // for makeyour task as done!
                 MarkasDoneMenu();
                 break;
-
-
         }
         backToStartMenu();
-
     }
 
+    /**
+     * Updating task.
+     */
     public void updatingTask() {
         // in updaing Task the user should select the task
         // the method remove the task from the array list using the another method
         // removedselectedTas(String selectedTask)
         // and the user can add new task instead of the old task!
         System.out.println("Select task to update!");
-
         showingTaskToEdit();
         Scanner inupdate = new Scanner(System.in);
         int updatedTaskNumber = inupdate.nextInt();
         taskStore.removeSelectedTask(updatedTaskNumber);
-
         System.out.println("here you can edit your task!");
         addingTaskMenu();
-
     }
 
     /***
@@ -285,7 +259,6 @@ public Display(TaskStore taskStore){
     public void showingTaskToEdit() {
         for (int i = 0; i < taskStore.taskList.size(); i++)
             System.out.println("(" + (i + 1) + ")" + taskStore.taskList.get(i).getTaskTitle() + "\n");
-
     }
 
 
@@ -297,14 +270,10 @@ public Display(TaskStore taskStore){
     public void removeTaskMenu() {
         System.out.println("Here You Can remove your Task:");
         System.out.println("Select task number to remove it");
-
-
         showingTaskToEdit();
         Scanner inremove = new Scanner(System.in);
         int removedTask = inremove.nextInt();
-
         taskStore.removeSelectedTask(removedTask);
-
         // here is an addintional PrintLn
         System.out.println("Loading...20%");
         System.out.println("Loading...80%");
@@ -318,32 +287,31 @@ public Display(TaskStore taskStore){
      */
     public void MarkasDoneMenu() {
         System.out.println("Select your Task To marked it as done ");
-
         showingTaskToEdit();
         Scanner inDone = new Scanner(System.in);
         int MarkedTask = inDone.nextInt();
-
         taskStore.MarkAsDone(MarkedTask);
         System.out.println("  Your task have been mareked as done Successfully ...");
     }
 
+    /**
+     * Save and quit menu.
+     */
     public void SaveAndQuitMenu() {
         System.out.println("bye");
-
-
     }
 
+    /**
+     * Showing done tasks.
+     */
     public void showingDoneTasks() {
-
         for (int i = 0; i < taskStore.taskList.size(); i++) {
             if (taskStore.taskList.get(i).getStatus() == true) {
-
                 System.out.println("(" + (i + 1) + ")" + taskStore.taskList.get(i).getTaskTitle() + "Marked As Done" + "\n");
 
             } else {
                 System.out.println("(" + (i + 1) + ")" + taskStore.taskList.get(i).getTaskTitle() + "Need To Do it !!" + "\n");
             }
-
         }
     }
 }

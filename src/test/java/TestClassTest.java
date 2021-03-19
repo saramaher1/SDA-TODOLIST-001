@@ -24,6 +24,7 @@ class TestClassTest {
         Date date = new SimpleDateFormat("dd-MM-yyyy").parse(dueDate);
         ts.addTask("Sara", date, "Java");
         Assertions.assertEquals(1, ts.getTaskListSize());
+
         //Assertions.assertNull();
     }
 
@@ -78,4 +79,6 @@ class TestClassTest {
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
             ts.MarkAsDone(0);
         });
-}}
+}
+
+}
