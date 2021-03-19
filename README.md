@@ -1,13 +1,18 @@
 # SDA-TODOLIST-001
+##ToDoList App
+A simple JAVA program to create and manage a personal Todo List,It support adding ,editing, and saving your tasks. 
 
+## Discription 
+Simple program for manage your ToDo List by Adding tasks and manage them.
+by Simple options you can select 1 Choise that help you to use the ToDoList.
 
-#ToDoList App
-A simple JAVA program to create and manage a personal Todo List. 
-
-# Discription 
-Simple program for manage your ToDo List by Adding tasks and manage them
-by Simple options you can select 1 Choise that help you to use the ToDoList
-
+## Getting Started :
+This application can be run directly via gradle or via generating jar file 
+### Run with Gradle:
+In the root folder Start the application with gradle's command line
+...bash
+gradle run
+...
 
 ## features
 * Models a task with: 
