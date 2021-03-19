@@ -22,6 +22,10 @@ public  class FileHandler {
      * @return the tasks
      * @throws FileNotFoundException the file not found exception
      */
+    /**
+     getting the tasks from the file when run the program after quiting from it
+     */
+
     public static ArrayList<Task> getTasks() throws FileNotFoundException {
         ArrayList<Task> loadedTasks = new ArrayList<>();
         File myFile = new File("./resources/data.txt");
@@ -49,7 +53,8 @@ public  class FileHandler {
      * Try save tasks boolean.
      *
      * @param tasks the tasks
-     * @return the boolean
+     * @return the boolean true if the data is saved in the file successfully  so we make sure it saving the data into file
+     *
      */
     public static boolean trySaveTasks(ArrayList<Task> tasks) {
         try {

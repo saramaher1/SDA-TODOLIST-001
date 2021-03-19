@@ -1,6 +1,5 @@
 package sda;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -9,15 +8,13 @@ import java.util.Scanner;
  * The type Task store.
  */
 public class TaskStore {
-
-
     /**
      * The Task list.
      */
     protected ArrayList<sda.Task> taskList = new ArrayList<>();
 
-    public TaskStore(ArrayList<sda.Task> taskList){
-        this.taskList=taskList;
+    public TaskStore(ArrayList<sda.Task> taskList) {
+        this.taskList = taskList;
     }
 
     /**
@@ -39,18 +36,19 @@ public class TaskStore {
     /**
      * Remove selected task.
      *
-     * @param removedTask the removed task
+     * @param removedTask the removed task// This method removed the selected task from the Menu:
      */
-// This method removed the selected task from the Menu:
+
     public void removeSelectedTask(int removedTask) {
-        taskList.remove(removedTask-1);
+        taskList.remove(removedTask - 1);
     }
 
     /**
      * Mark as done.
      *
-     * @param MarkedTask the marked task
+     * @param MarkedTask this method set the status = true , it means the task is done !!
      */
+
     public void MarkAsDone(int MarkedTask) throws NullPointerException {
         taskList.get(MarkedTask).setStatus(true);
         System.out.println("  Your task have been mareked as done Successfully ...");
@@ -59,37 +57,40 @@ public class TaskStore {
 
     /**
      * Show task list.
-     *
-     * @param showItem the show item
+     * <p>
+     * this method help us to get our task by show item date or project!!
      */
-    // this
+
 
     public void getingTaskList(String showItem) {
 
         if (showItem.equals("Date")) {
 
             //here to show the Tasklist by date
-            if(!taskList.isEmpty())
 
-            {
+            /**
+             *
+             //here to show the Tasklist by date
+             */
+
+            if (!taskList.isEmpty()) {
 
                 for (int i = 0; i < taskList.size(); i++)
-                    System.out.println("(" + (i + 1) + ")" + taskList.get(i).getTaskTitle()+ "    "+ taskList.get(i).getDueDate() +"\n");
-            } else
-
-            {
+                    System.out.println("(" + (i + 1) + ")" + taskList.get(i).getTaskTitle() + "    " + taskList.get(i).getDueDate() + "\n");
+            } else {
                 System.out.println(" There is No Tasks For Date:( ");
                 System.out.println();
             }
 
 
-        }else if(showItem.equals("project")){
+            /**
+             *
+             //here to show the Tasklist by project
+             */
+        } else if (showItem.equals("project")) {
 
 
-
-            if(!taskList.isEmpty())
-
-            {
+            if (!taskList.isEmpty()) {
                 String projectname;
                 Scanner inProject = new Scanner(System.in);
                 System.out.println("<<  Select project for Your Task you want to show :  >>");
@@ -100,21 +101,21 @@ public class TaskStore {
                 int projectCheck = inProject.nextInt();
                 switch (projectCheck) {
                     case 1:
-                        projectname="Entertainment";
+                        projectname = "Entertainment";
                         System.out.println("The Tasks for Entertainment Project : ");
-                        for (int i = 0; i < taskList.size(); i++){
-                            if(projectname=="Entertainment"){
+                        for (int i = 0; i < taskList.size(); i++) {
+                            if (projectname == "Entertainment") {
 
 
                                 System.out.println("(" + (i + 1) + ")" + taskList.get(i).getTaskTitle() + "\n");
-                            }
-                            else {System.out.println("There is no tasks for Entertanment project");
+                            } else {
+                                System.out.println("There is no tasks for Entertanment project");
 
                             }
                         }
                         break;
                     case 2:
-                        projectname="Learning";
+                        projectname = "Learning";
                         System.out.println("The Tasks for Learning Project : ");
                         for (int i = 0; i < taskList.size(); i++) {
                             if (projectname == "Learning") {
@@ -128,16 +129,16 @@ public class TaskStore {
                         }
                         break;
                     case 3:
-                        projectname="Work";
+                        projectname = "Work";
                         System.out.println("The Tasks for Work Project : ");
 
-                        for (int i = 0; i < taskList.size(); i++){
-                            if(projectname=="Work"){
+                        for (int i = 0; i < taskList.size(); i++) {
+                            if (projectname == "Work") {
 
                                 System.out.println("The Tasks for Work Project : ");
                                 System.out.println("(" + (i + 1) + ")" + taskList.get(i).getTaskTitle() + "\n");
-                            }
-                            else {System.out.println("There is no tasks for Work project");
+                            } else {
+                                System.out.println("There is no tasks for Work project");
 
                             }
                             break;
@@ -152,22 +153,21 @@ public class TaskStore {
         }
     }
 
+    /**
+     * //this is to show the tasks after choosing the project from the menu !
+     */
 
-
-    //this is to show the tasks after choosing the project from the menu !
     public void getTaskBySelectedProject(String projectName) {
         //System.out.println("The Tasks for the  " + projectName);
         for (int i = 0; i < taskList.size(); i++) {
-            if (taskList.get(i).getProjectName()==projectName ) {
+            if (taskList.get(i).getProjectName() == projectName) {
                 System.out.println("(" + (i + 1) + ")" + taskList.get(i).getTaskTitle() + "\n");
             } else {
                 System.out.println("There is no tasks " + projectName);
             }
         }
     }
-
-    public sda.Task getTaskbyId(int ID) {
-        return taskList.get(ID);
-    }
-
 }
+
+
+

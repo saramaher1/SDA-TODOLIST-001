@@ -38,7 +38,8 @@ public class main {
      * Read from file boolean.
      *
      * @param filename the filename
-     * @return the boolean
+     * @return the boolean  reading from file , after saving your tasks in file
+     * and open it again the data should be read from the file !
      */
     public boolean readFromFile(String filename) {
         ArrayList<Task> taskList;
@@ -65,13 +66,13 @@ public class main {
         }
     }
 
-    // saving my Tasks into file:
+
 
     /**
      * Save to file boolean.
      *
      * @param filename the filename
-     * @return the boolean
+    // saving my Tasks into file:
      */
     public boolean saveToFile(String filename) {
         ArrayList<Task> taskList = new ArrayList<>();
@@ -89,8 +90,6 @@ public class main {
             //   Messages.showMessage(e.getMessage(),true);
             return false;
 
-//test
-            //test
 
         }
     }

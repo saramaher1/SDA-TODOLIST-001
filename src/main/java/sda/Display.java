@@ -32,10 +32,10 @@ public class Display {
     }
 
     /**
-     * Start menu.
+     * Start menu. here is the Start menu that Start when the programm is run at the :
+     *     // the user can select what he want to do in his ToDolist!
      */
-// here is the Start menu that Start when the programm is run at the :
-    // the user can select what he want to do in his ToDolist!
+
     public void StartMenu() {
         System.out.println("Pick an option:");
         System.out.println("(1) Show Task List (by date or project)");
@@ -82,11 +82,11 @@ public class Display {
     String showtype = "Date";
 
     /**
-     * Show task menu.
+     //this method is showing how can we show the Task
+     // we can sort our Task by dueDate and The projectname.
+     // the user can select which type he want to show his task
      */
-//this method is showing how can we show the Task
-    // we can sort our Task by dueDate and The projectname.
-    // the user can select which type he want to show his task
+
     public void ShowingTaskMenu() {
         System.out.println("Select the Way Of showing the Task ");
         System.out.println("(1) Show Tasks By Date ");
@@ -114,11 +114,11 @@ public class Display {
     }
 
     /**
-     * Adding task menu.
+     // this menu is showing after select (2) Option in the Start menu :
+     // the user should inter TaskTitle and Duedate for task
+     // Also the user should select the Projectname for his Task!
      */
-// this menu is showing after select (2) Option in the Start menu :
-    // the user should inter TaskTitle and Duedate for task
-    // Also the user should select the Projectname for his Task!
+
     public void addingTaskMenu() {
         System.out.println("Here You can Enter Your Task!");
         System.out.println(" << Add title of your Task and Add Date >> ");
@@ -128,9 +128,12 @@ public class Display {
         System.out.println("<<  Enter DueDate for Your Task:  >>");
         System.out.println("<<  Please Enter Date with ( dd-mm-yyyy) format  >>");
         String DueDate = in.nextLine();
-        // here is adding the project
-        // the user should select the projectname By typing the number for the project so its added as
-        // a project name for his task!
+
+        /**
+         // here is adding the project
+         // the user should select the projectname By typing the number for the project so its added as
+         // a project name for his task!
+         */
         Scanner inProject = new Scanner(System.in);
         String projectname = "project";
         System.out.println("<<  Select project for Your Task:  >>");
@@ -151,8 +154,12 @@ public class Display {
                 projectname = "Work";
                 break;
         }
-        // Here is additional Println()
-        // you can skip it.
+
+
+        /**
+         // Here is additional Println()
+         // you can skip it.
+         */
         System.out.println("Loading...20%");
         System.out.println("Loading...80%");
         System.out.println("Loading...100%");
@@ -203,10 +210,10 @@ public class Display {
     }
 
     /**
-     * Editing task menu.
+     // this menu is showing when the user select the (3) option in The Start menu So The user Can select what
+     // to Edit the tasks select 1 to  update  ,2 to  Edit ,3 to Remove
      */
-// this menu is showing when the user select the (3) option in The Start menu So The user Can select what
-    // to Edit the tasks select 1 to  update  ,2 to  Edit ,3 to Remove
+
     public void EditingTaskMenu() {
         System.out.println("Here You Can Edit your Task:");
         System.out.println();
@@ -236,13 +243,13 @@ public class Display {
     }
 
     /**
-     * Updating task.
+     // in updaing Task the user should select the task
+     // the method remove the task from the array list using the another method
+     // removedselectedTas(String selectedTask)
+     // and the user can add new task instead of the old task!
      */
     public void updatingTask() {
-        // in updaing Task the user should select the task
-        // the method remove the task from the array list using the another method
-        // removedselectedTas(String selectedTask)
-        // and the user can add new task instead of the old task!
+
         System.out.println("Select task to update!");
         showingTaskToEdit();
         Scanner inupdate = new Scanner(System.in);
@@ -252,10 +259,10 @@ public class Display {
         addingTaskMenu();
     }
 
-    /***
-     *
+    /**
+     // in this method you can see our Tasks in the program:
      */
-// in this method you can see our Tasks in the program:
+
     public void showingTaskToEdit() {
         for (int i = 0; i < taskStore.taskList.size(); i++)
             System.out.println("(" + (i + 1) + ")" + taskStore.taskList.get(i).getTaskTitle() + "\n");
@@ -263,10 +270,10 @@ public class Display {
 
 
     /**
-     * Remove task menu.
+     // Menu for selecting task to delete the tasks
+     // it shows the tasks and the user should select which task he want to remove
      */
-// Menu for selecting task to delete the tasks
-    // it shows the tasks and the user should select which task he want to remove
+
     public void removeTaskMenu() {
         System.out.println("Here You Can remove your Task:");
         System.out.println("Select task number to remove it");
