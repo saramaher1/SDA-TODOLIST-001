@@ -43,6 +43,8 @@ java -jar build/libs/sda.jar
 
 
 ## Class Diagram: 
+
+
 <img width="787" alt="Screenshot 2021-03-19 at 14 03 33" src="https://user-images.githubusercontent.com/79480685/111784983-536fd800-88bc-11eb-81bc-0d53b2b8c884.png">
 
 
@@ -66,7 +68,14 @@ press (2) to show tasks via project.
 ```java
 2
 ```
+
+
+
 <img width="439" alt="Screenshot 2021-03-04 at 23 47 16" src="https://user-images.githubusercontent.com/79480685/110041338-41325d80-7d44-11eb-926a-6b3be813edb9.png">
+
+
+
+
 
 <img width="587" alt="Screenshot 2021-03-04 at 23 47 34" src="https://user-images.githubusercontent.com/79480685/110041672-c3bb1d00-7d44-11eb-9c44-9d9c2b253831.png">
 
