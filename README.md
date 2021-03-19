@@ -24,7 +24,7 @@ the jar file will be generated in `build/libs` which can be run by a java enviro
 java -jar build/libs/sda.jar
 ```
 
-## Usage 
+
 ## features
 * Models a task with: 
     * task title
@@ -81,6 +81,6 @@ the user can get back to start menu to manage or add more task !
 
 <img width="325" alt="Screenshot 2021-03-04 at 23 47 47" src="https://user-images.githubusercontent.com/79480685/110042407-06312980-7d46-11eb-8f4e-7676a274bcd4.png">
 
-## install 
+
 
 
