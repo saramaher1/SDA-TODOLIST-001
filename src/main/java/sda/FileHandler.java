@@ -52,23 +52,23 @@ public  class FileHandler {
      * @return the boolean
      */
     public static boolean trySaveTasks(ArrayList<Task> tasks) {
-      try {
-          new PrintWriter("./resources/data.txt").close();
-          new FileWriter("./resources/data.txt", false).close();
+        try {
+            new PrintWriter("./resources/data.txt").close();
+            new FileWriter("./resources/data.txt", false).close();
 
-          for (Task temp : tasks) {
-              String taskToSave = temp.getTaskTitle() + "," +
-                      temp.getDueDate() + "," +
-                      temp.getStatus().toString() + "," +
-                      temp.getProjectName()  + "\n";
-              Files.write(Paths.get("./resources/data.txt"), taskToSave.getBytes(), StandardOpenOption.APPEND);
-          }
+            for (Task temp : tasks) {
+                String taskToSave = temp.getTaskTitle() + "," +
+                        temp.getDueDate() + "," +
+                        temp.getStatus().toString() + "," +
+                        temp.getProjectName()  + "\n";
+                Files.write(Paths.get("./resources/data.txt"), taskToSave.getBytes(), StandardOpenOption.APPEND);
+            }
 
-          return true;
-      }catch(IOException ex){
-          System.out.println("Ooops! a problem happened while saving your file, Please make sure your file exists or not used by a different application!");
-          return false;
-      }
+            return true;
+        }catch(IOException ex){
+            System.out.println("Ooops! a problem happened while saving your file, Please make sure your file exists or not used by a different application!");
+            return false;
+        }
     }
 
 }

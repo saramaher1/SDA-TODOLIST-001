@@ -14,9 +14,9 @@ public class TaskStore {
     /**
      * The Task list.
      */
-    protected ArrayList<Task> taskList = new ArrayList<>();
+    protected ArrayList<sda.Task> taskList = new ArrayList<>();
 
-    public TaskStore(ArrayList<Task> taskList){
+    public TaskStore(ArrayList<sda.Task> taskList){
         this.taskList=taskList;
     }
 
@@ -28,7 +28,7 @@ public class TaskStore {
      * @param projectname the projectname
      */
     public void addTask(String taskTitle, Date DueDate, String projectname) {
-        Task T = new Task(taskTitle, DueDate, projectname);
+        sda.Task T = new sda.Task(taskTitle, DueDate, projectname);
         taskList.add(T);
     }
 
@@ -68,7 +68,7 @@ public class TaskStore {
 
         if (showItem.equals("Date")) {
 
-      //here to show the Tasklist by date
+            //here to show the Tasklist by date
             if(!taskList.isEmpty())
 
             {
@@ -166,7 +166,7 @@ public class TaskStore {
         }
     }
 
-    public Task getTaskbyId(int ID) {
+    public sda.Task getTaskbyId(int ID) {
         return taskList.get(ID);
     }
 

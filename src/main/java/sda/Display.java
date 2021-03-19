@@ -28,8 +28,8 @@ public class Display {
      * @param taskStore the task store
      */
     public Display(TaskStore taskStore){
-    this.taskStore=taskStore;
-}
+        this.taskStore=taskStore;
+    }
 
     /**
      * Start menu.
@@ -109,7 +109,7 @@ public class Display {
                 taskStore.getingTaskList(showtype);
                 break;
         }
-       // after finishinh its time to goback to start Menu:)
+        // after finishinh its time to goback to start Menu:)
         backToStartMenu();
     }
 
@@ -178,7 +178,7 @@ public class Display {
         }
 
         taskStore.addTask(TaskTitle, date1, projectname);
-       // after Finishing the add method We should go back To the Startmenu!
+        // after Finishing the add method We should go back To the Startmenu!
         backToStartMenu();
     }
 

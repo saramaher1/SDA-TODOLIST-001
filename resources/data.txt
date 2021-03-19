@@ -1,2 +1,0 @@
-saara,Tue Oct 20 00:00:00 CEST 2020,false,Entertainment
-maher,Tue Oct 20 00:00:00 CEST 2020,false,Entertainment
