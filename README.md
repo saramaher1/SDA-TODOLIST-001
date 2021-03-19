@@ -83,14 +83,31 @@ learn java // entering the tasktitle.
 2 // select 2 to choose the project Type
 ```
 
+
+
+
 <img width="622" alt="Screenshot 2021-03-04 at 23 29 20" src="https://user-images.githubusercontent.com/79480685/110041941-388e5700-7d45-11eb-8cc8-5230b41ea644.png"> 
+
+
+
 
 <img width="305" alt="Screenshot 2021-03-04 at 23 29 32" src="https://user-images.githubusercontent.com/79480685/110041983-50fe7180-7d45-11eb-8a8a-5783208968e4.png">
 
+
+
+
 ## The user select the ( 3 ) option : 
+
+
 In this option the user Can update on his Task!, he Can remove , marked as Done and edit the task 
 
+
+
 <img width="460" alt="Screenshot 2021-03-04 at 23 30 06" src="https://user-images.githubusercontent.com/79480685/110042196-b3f00880-7d45-11eb-8afa-b94bf7f22fc8.png">
+
+
+
+
 
 
 <img width="611" alt="Screenshot 2021-03-04 at 23 32 50" src="https://user-images.githubusercontent.com/79480685/110042224-c0746100-7d45-11eb-8066-108e63ff2947.png">
@@ -104,6 +121,10 @@ press ( * )
 ```java
 * // to go back to the start menu .
 ```
+
+
+
+
 
 <img width="325" alt="Screenshot 2021-03-04 at 23 47 47" src="https://user-images.githubusercontent.com/79480685/110042407-06312980-7d46-11eb-8f4e-7676a274bcd4.png">
 
